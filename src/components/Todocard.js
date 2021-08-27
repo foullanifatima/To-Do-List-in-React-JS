@@ -30,6 +30,7 @@ export const Todocard = ({todo}) => {
             <div className="card">
                  {todo.task}
             </div>
+            <h1>hello word</h1>
         </div>
     )
 }
