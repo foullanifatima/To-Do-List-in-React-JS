@@ -3,7 +3,7 @@ import { Todocard } from './Todocard'
 
 export const Todolist = ({list}) => {
     return (
-        <div className="container">
+        <div className="container  fluid">
             <div className="row"> 
             {list.map(todo => {
                return (
@@ -12,9 +12,6 @@ export const Todolist = ({list}) => {
                 </div>
                ) })}
             </div>
-            
-        
-          
         </div>
     )
 }

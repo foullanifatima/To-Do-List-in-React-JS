@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export const Todocard = ({todo}) => {
     /*colors*/
     const colors = [
@@ -23,14 +24,27 @@ export const Todocard = ({todo}) => {
             primaryColor : "#B964F7",
             secondaryColor : "#F3F0FD"
         }
-    ]
+    ];
+    const index=todo.id;
+  
 
     return (
-        <div className="container">
-            <div className="card">
-                 {todo.task}
+       
+        <div className="container mt-4">
+            <div className = "card-wrapper ">
+            <div className = "card-top" style={{"background-color": colors[index%5].primaryColor}}></div>
+                <div className = "task-holder">
+                    <span className = "card-header" style={{"background-color": colors[index%5].secondaryColor}}>{todo.task}</span>
+                    <p className = "mt-3 ml-3">{todo.desciption}</p>
+                    </div>
+            <div className="card-bottom">
+             <i class="far fa-edit"></i>
+             <i class="fas fa-check padding-left" ></i>
+             <i class="fas fa-trash-alt padding-left" ></i>
             </div>
-           
-        </div>
+            </div>
+         </div>
+       
+
     )
 }

@@ -10,7 +10,7 @@ export default function AddTask({modal, toggle, save}) {
         const {name, value} = e.currentTarget
 
         if(name === "taskName"){
-            setTaskName(value)
+          setTaskName(value)
         }else{
             setDescription(value)
         }

@@ -2,7 +2,7 @@
 import React,{useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import data from './Data/data.json'
+import data from './Data/data'
 
 /*import components*/
 import { Header } from './components/Header';
@@ -23,8 +23,9 @@ function App() {
  const saveTask = (taskObj) => {
   
   let copy = [...todoList];
-  copy = [...copy, { id: todoList.length + 1, task:taskObj["Name"], complete: false }];
+  copy = [...copy, { id: todoList.length + 1, task:taskObj["Name"],desciption:taskObj["Description"], complete: false }];
   setToDo(copy);
+  data.push({ id: todoList.length + 1, task:taskObj["Name"], desciption:taskObj["Description"], complete: false });
   setModal(false)
 }
 
