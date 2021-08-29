@@ -24,8 +24,10 @@ function App() {
   
   let copy = [...todoList];
   copy = [...copy, { id: todoList.length + 1, task:taskObj["Name"],desciption:taskObj["Description"], complete: false }];
-  setToDo(copy);
+  
   data.push({ id: todoList.length + 1, task:taskObj["Name"], desciption:taskObj["Description"], complete: false });
+  localStorage.setItem({data}, JSON.stringify(copy))
+  setToDo(copy);
   setModal(false)
 }
 
