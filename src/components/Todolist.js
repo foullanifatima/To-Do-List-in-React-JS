@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import { Todocard } from './Todocard'
-import data from '../Data/data.json'
 import AddTask from '../modal/AddTask'
 const fs = require("fs");
 

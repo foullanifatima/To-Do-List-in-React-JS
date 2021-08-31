@@ -2,7 +2,7 @@
 import React,{useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import data from './Data/data.json'
+
 /*import components*/
 import { Header } from './components/Header';
 import { Todolist } from './components/Todolist';
