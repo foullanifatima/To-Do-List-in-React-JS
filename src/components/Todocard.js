@@ -2,7 +2,8 @@ import React,{useState} from 'react';
 import EditTask from '../modal/EditTask';
 
 
-export const Todocard = ({todo,updateListToDo}) => {
+export const Todocard = ({todo,updateListToDo,index,deleteTask,completeTask}) => {
+    /*colors*/
      const colors = [
         {
             primaryColor : "#5D93E1",
@@ -26,10 +27,8 @@ export const Todocard = ({todo,updateListToDo}) => {
         }
     ];
     const [modal, setModal] = useState(false);
-    /*colors*/
    
-    const index=todo.id;
-    
+   
     const toggle = () => {
         setModal(!modal);
     }
@@ -37,21 +36,26 @@ export const Todocard = ({todo,updateListToDo}) => {
     const updateTask = (obj) => {
         updateListToDo(obj, index)
     }
+     /* delete task*/
+    const deleteTodo=(todoIndex) => {
+        deleteTask(todoIndex);
+      }
+    
 
 
     return (
       
         <div className="container mt-4">
             <div className = "card-wrapper ">
-            <div className = "card-top" style={{"background-color": colors[1].primaryColor}}></div>
+            <div className = "card-top"  style={{"background-color": colors[index%5].primaryColor}}></div>
                 <div className = "task-holder">
-                    <span className = "card-header" style={{"background-color": colors[1].secondaryColor}}>{todo.task}</span>
-                    <p className = "mt-3 ml-3">{todo.desciption}</p>
+                    <span className = "card-header" className={todo.complete ? "strike" : ""} style={{"background-color": colors[index%5].secondaryColor}}>{todo.task}</span>
+                    <p className = "mt-3 ml-3" className={todo.complete ? "strike" : ""}>{todo.desciption}</p>
                     </div>
             <div className="card-bottom">
-             <i class="far fa-edit" style={{"color" : colors[1].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
-             <i class="fas fa-check padding-left"   ></i>
-             <i class="fas fa-trash-alt padding-left" ></i>
+             <i class="far fa-edit" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => setModal(true)}></i>
+             <i class="fas fa-check padding-left"   style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => completeTask(index)} ></i>
+             <i class="fas fa-trash-alt padding-left" style={{"color" : colors[index%5].primaryColor, "cursor" : "pointer"}} onClick = {() => deleteTodo(index)}></i>
             </div>
             
             </div>

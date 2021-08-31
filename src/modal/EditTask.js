@@ -26,13 +26,14 @@ export default function EditTask({modal, toggle, updateTask, taskObj}) {
     const handleUpdate = (e) => {
         e.preventDefault();
         let tempObj = {}
+        tempObj['id']=taskObj.id
         tempObj['task'] = taskName
         tempObj['desciption'] = description
         updateTask(tempObj)
     }
     return (
         <div>
-             <Modal isOpen={modal} toggle={toggle}>
+            <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>Update Task</ModalHeader>
             <ModalBody>
             

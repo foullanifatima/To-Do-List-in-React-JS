@@ -21,8 +21,8 @@ export default function AddTask({modal, toggle, save}) {
     const handleSave = (e) => {
         e.preventDefault()
         let taskObj = {}
-        taskObj["Name"] = taskName
-        taskObj["Description"] = description
+        taskObj["task"] = taskName
+        taskObj["desciption"] = description
         save(taskObj)
         setTaskName("")
         setDescription("")
